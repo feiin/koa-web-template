@@ -1,0 +1,37 @@
+{
+  "name": "koa-web-template",
+  "version": "0.1.0",
+  "description": "A web framwork base on koa",
+  "main": "index.js",
+  "dependencies": {
+    "bunyan": "^1.8.15",
+    "is-type-of": "^1.2.1",
+    "koa": "^2.14.1",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^12.0.0"
+  },
+  "devDependencies": {
+    "chokidar": "^3.5.3",
+    "cross-env": "^7.0.3",
+    "koa-static": "^5.0.0"
+  },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development node ./dev.js | ./node_modules/.bin/bunyan",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/feiin/koa-web-template.git"
+  },
+  "keywords": [
+    "web",
+    "framework",
+    "koa"
+  ],
+  "author": "Yin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/feiin/koa-web-template/issues"
+  },
+  "homepage": "https://github.com/feiin/koa-web-template#readme"
+}

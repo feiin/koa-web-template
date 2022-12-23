@@ -1,0 +1,89 @@
+#!/usr/bin/env node
+
+const app = require('../app');
+const debug = require('debug')('koa-web-template:server');
+const configPath = '../configs/' + process.env.NODE_ENV + '';
+const configs = require(configPath);
+
+
+const port = normalizePort(configs.port || process.env.PORT || '3000');
+
+let server = app.listen(port);
+
+// 出错捕获
+server.on('error', onError);
+server.on('listening', onListening);
+
+
+/**
+ * 格式化服务器侦听端口
+ * @param val 端口
+ */
+function normalizePort(val) {
+    let port = parseInt(val, 10);
+    if (isNaN(port)) {
+        return val;
+    }
+
+    if (port >= 0) {
+        return port;
+    }
+
+    return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+    if (error.syscall !== 'listen') {
+        throw error;
+    }
+
+    let bind = typeof port === 'string'
+        ? 'Pipe ' + port
+        : 'Port ' + port;
+
+    // handle specific listen errors with friendly messages
+    switch (error.code) {
+        case 'EACCES':
+            console.error(bind + ' requires elevated privileges');
+            process.exit(1);
+            break;
+        case 'EADDRINUSE':
+            console.error(bind + ' is already in use');
+            process.exit(1);
+            break;
+        default:
+            console.error(error);
+            throw error;
+    }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+    let addr = server.address();
+    let bind = typeof addr === 'string'
+        ? 'pipe ' + addr
+        : 'port ' + addr.port;
+    debug('Listening on ' + bind);
+
+    // for hot dev
+    if (process.send && process.env.NODE_ENV === 'development') {
+        process.send('web-loaded');
+    }
+    console.log('Listening on ' + bind);
+    console.log('http://localhost:' + addr.port);
+}
+
+/**
+ * 捕获未处理的Promise错误
+ */
+
+process.on('unhandledRejection', (err, p) => {
+    console.error('Unhandled Rejection at:', p, 'reason:', err);
+});
