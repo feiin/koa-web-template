@@ -5,6 +5,7 @@ const bodyparser = require('koa-bodyparser');
 const bunyan = require('bunyan'); // using bunyan for logger
 let configPath = './configs/' + process.env.NODE_ENV + '';
 const configs = require(configPath);
+const koaValidator = require('./lib/koaValidator');
 
 
 app.use(bodyparser({
@@ -31,7 +32,9 @@ app.use(middlewares.config()); // 配置文件中间件
 app.use(middlewares.logger(rootLogger)); // 日志中间件
 app.use(middlewares.httpError()); // 500错误中间件处理
 app.use(middlewares.requestLogger()); // 请求日志
+app.use(middlewares.sequelize(configs)); // 数据库中间件
 app.use(middlewares.services()); // 数据服务访问 中间件
+app.use(koaValidator());//验证参数中间件
 
 
 
