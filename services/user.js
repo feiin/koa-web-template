@@ -22,16 +22,17 @@ class User extends Base {
     }
 
 
-    async AddUser(user) {
+    async addUser(user) {
 
+        //using tansactions
         let myTransaction = await await this.mysql.use("tests").transaction();
         try {
             let sql = 'insert into users(username) values(?)';
-            let result = await this.mysql.use("tests").execute(sql, [user.username], myTransaction);
+            let result = await this.mysql.use("tests").query(sql, [user.username], myTransaction);
 
-            let insertId = result.results;
+            let insertId = result.recordset;
             sql = 'insert into user_account(user_id,amount) values(?,?)'
-            result = await this.mysql.use("tests").execute(sql, [insertId, 0], myTransaction);
+            result = await this.mysql.use("tests").query(sql, [insertId, 0], myTransaction);
 
             await myTransaction.commit();
 
@@ -40,6 +41,17 @@ class User extends Base {
             this.logger.error('add user error', err);
             await myTransaction.rollback();
         }
+    }
+
+    async updateUser(user) {
+
+        let sql = 'update users set username = ? where id=?'
+        let result = await this.mysql.use('tests').query(sql, [user.username, user.id]);
+        if (result.recordset.affectedRows === 1) {
+            return true;
+        }
+        this.logger.error('update user warn', result)
+        return false;
     }
 
 }

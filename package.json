@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "bunyan": "^1.8.15",
+    "ioredis": "^5.2.4",
     "is-type-of": "^1.2.1",
     "koa": "^2.14.1",
     "koa-bodyparser": "^4.3.0",

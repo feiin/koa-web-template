@@ -33,6 +33,7 @@ app.use(middlewares.logger(rootLogger)); // 日志中间件
 app.use(middlewares.httpError()); // 500错误中间件处理
 app.use(middlewares.requestLogger()); // 请求日志
 app.use(middlewares.sequelize(configs)); // 数据库中间件
+app.use(middlewares.redis(configs)); //redis 连接中间件，可以根据实际情况自行选择去留
 app.use(middlewares.services()); // 数据服务访问 中间件
 app.use(koaValidator());//验证参数中间件
 

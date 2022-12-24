@@ -46,11 +46,25 @@ describe('/api/users', () => {
                 .then(response => {
 
                     should(response.body).be.ok();
-                    // response.body.status.should.be.a.Number().and.equal(0);
-                    // user = response.body.data;
-                    // user.should.be.an.Object();
-                    // user.should.be.have.property('id');
-                    // user.id.should.be.a.Number().and.above(0);
+                    done();
+                }).catch(err => {
+                    done(err);
+                });
+
+
+        });
+    });
+
+    describe('#post()', () => {
+        it('should be updateusers success', (done) => {
+            request(server)
+                .post('/api/users/update')
+                .set('Accept', 'application/json')
+                .send({ username: 'testasdsd' + new Date().getTime(), id: 12 })
+                .expect(200)
+                .then(response => {
+
+                    should(response.body).be.ok();
                     done();
                 }).catch(err => {
                     done(err);

@@ -10,4 +10,6 @@ router.get('/', async ctx => {
 
 router.get('/api/users/list', controllers.api.userController.getUserList)
 router.post('/api/users/add', controllers.api.userController.addUser)
+router.post('/api/users/update', controllers.api.userController.updateUser)
+router.get('/api/redis/test', controllers.api.userController.redisTest)
 module.exports = router;
