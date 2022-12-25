@@ -15,7 +15,7 @@ module.exports = function (shipit) {
         },
         default: {
             workspace: '/tmp/koa-web-template', //本地的临时工作目录
-            repositoryUrl: 'git@github.com:feiin/koa-web-template.git',
+            repositoryUrl: 'git@github.com:feiin/koa-web-template.git',//替换为项目git地址
             ignores: ['.git', 'node_modules', 'dev.js', 'apidoc.json'],
             keepReleases: 5,
             deleteOnRollback: false
