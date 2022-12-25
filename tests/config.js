@@ -20,7 +20,8 @@ module.exports = {
     testUrl: testUrl,
     server: server,
     release: () => {
-
+        global.mysql.closeAll()
+        server.close()
         return Promise.resolve();
     }
 };

@@ -3,7 +3,7 @@ TEST_TIMEOUT = 10000
 MOCHA_REPORTER = spec
 
 test:
-	@NODE_ENV=test mocha \
+	@NODE_ENV=test ./node_modules/mocha/bin/mocha.js \
      	--reporter $(MOCHA_REPORTER) \
         -r should \
      	--timeout $(TEST_TIMEOUT) \

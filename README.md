@@ -14,3 +14,13 @@ A web framework base on koa
 - bunyan 日志
 - apidoc 生成api文档
  
+
+ ## tests
+
+ 单元测试
+ ```
+ npm i -g mocha
+ npm test  跑所有的
+ mocha test/api/user.controller.test.js --grep getuserlist  跑单独API getuserlist测试
+
+ ```
