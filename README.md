@@ -32,3 +32,14 @@ A node.js framework base on koa
 
  pm2 start ./pm2/pm2_production.json  # for pm2
  ```
+
+
+## deploy
+
+
+```
+npm i -g shipit-cli
+
+shipit test deploy #deploy to test server
+shipit production deploy # deploy to production
+```
