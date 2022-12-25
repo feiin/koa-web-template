@@ -34,13 +34,13 @@ module.exports = {
         // 多库连接
         clients: {
 
-            tests: {
-                host: "10.0.0.213",
-                port: 6033,
-                user: "root",
-                password: "nas@mysql20181016Abc",
-                database: "tests"
-            }
+            // tests: {
+            //     host: "10.0.0.213",
+            //     port: 6033,
+            //     user: "root",
+            //     password: "12345678",
+            //     database: "tests"
+            // }
 
         },
 
