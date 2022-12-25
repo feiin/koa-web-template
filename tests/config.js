@@ -2,7 +2,7 @@ const configPath = '../configs/' + (process.env.NODE_ENV || 'development') + '';
 const configs = require(configPath);
 const http = require('http');
 
-const testUrl = false;
+const testUrl = process.env.SELF_SERVER === '1' ? false : true;
 let server = null;
 
 if (testUrl) {
@@ -20,8 +20,10 @@ module.exports = {
     testUrl: testUrl,
     server: server,
     release: () => {
-        global.mysql.closeAll()
-        server.close()
+        if (process.env.SELF_SERVER === '1') {
+            global.mysql.closeAll()
+            server.close()
+        }
         return Promise.resolve();
     }
 };
