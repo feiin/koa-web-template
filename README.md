@@ -5,10 +5,10 @@ A web framework base on koa
 
 ## 说明
 
-- controllers
-- middlewares
-- routes
-- services 
+- controllers 控制器代码逻辑
+- middlewares 中间件
+- routes  API路由定义
+- services 数据库操作等逻辑
 - 包含多数据库实例管理连接
 - 多redis实例管理
 - bunyan 日志
