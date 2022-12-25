@@ -1,0 +1,11 @@
+{
+    "name": "koa-web-template",
+    "version": "1.0.0",
+    "description": "koa-web-template - 接口文档",
+    "title": "apis - 接口文档",
+    "url": "",
+    "template": {
+        "withCompare": true,
+        "withGenerator": true
+    }
+}
