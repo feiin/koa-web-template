@@ -1,5 +1,5 @@
 # koa-web-template
-A web framework base on koa
+A node.js framework base on koa
 
 基于koa的web框架
 
