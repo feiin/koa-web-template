@@ -24,7 +24,7 @@
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development node ./dev.js | ./node_modules/.bin/bunyan",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cross-env NODE_ENV=test make test"
   },
   "repository": {
     "type": "git",

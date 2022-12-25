@@ -1,9 +1,9 @@
-TESTS = $(shell find  tests/v1 -type f -name "*.test.js")
+TESTS = $(shell find  tests/api -type f -name "*.test.js")
 TEST_TIMEOUT = 10000
 MOCHA_REPORTER = spec
 
 test:
-	@NODE_ENV=test ./node_modules/mocha/bin/mocha \
+	@NODE_ENV=test mocha \
      	--reporter $(MOCHA_REPORTER) \
         -r should \
      	--timeout $(TEST_TIMEOUT) \
