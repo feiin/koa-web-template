@@ -15,6 +15,15 @@ A node.js framework base on koa
 - apidoc 生成api文档
  
 
+ ## getting start
+
+ ```
+ npm i -g kgen # 安装脚手架工具
+ kgen init # 根据引导生成项目koa-web-template
+ npm i
+ npm run dev
+ ```
+
  ## tests
 
  单元测试
