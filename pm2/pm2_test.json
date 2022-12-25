@@ -1,0 +1,12 @@
+{
+    "name": "koa-web-template",
+    "script": "./bin/www",
+    "exec_mode": "cluster",
+    "instances": "2",
+    "env": {
+        "NODE_ENV": "test"
+    },
+    "merge_logs": true,
+    "error_file": "/data/logs/koa-web-template_err.log",
+    "out_file": "/data/logs/koa-web-template_out.log"
+}

@@ -24,3 +24,11 @@ A web framework base on koa
  mocha test/api/user.controller.test.js --grep getuserlist  跑单独API getuserlist测试
 
  ```
+
+ ## run
+
+ ```
+ npm run dev 
+
+ pm2 start ./pm2/pm2_production.json  # for pm2
+ ```
