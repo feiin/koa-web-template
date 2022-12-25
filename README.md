@@ -1,5 +1,5 @@
 # koa-web-template
-A web framework base on koa
+A node.js framework base on koa
 
 基于koa的web框架
 
@@ -28,7 +28,7 @@ A web framework base on koa
  ## run
 
  ```
- npm run dev 
+ npm run dev  # for development
 
  pm2 start ./pm2/pm2_production.json  # for pm2
  ```
